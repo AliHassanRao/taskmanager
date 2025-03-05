@@ -16,7 +16,7 @@ exports.signup = async (req, res) => {
 
 
     if (password.length < 4) {
-      return res.status(400).json({ msg: "Password length must be atleast 4 characters" });
+      return res.status(400).json({ msg: "Password length atleast 4 characters" });
     }
 
     if (!validateEmail(email)) {
