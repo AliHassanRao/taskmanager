@@ -43,12 +43,7 @@ const LoginForm = ({ redirectUrl }) => {
     dispatch(postLoginData(formData.email, formData.password));
   };
 
-  const fieldError = (field) => (
-    <p className={`mt-1 text-pink-600 text-sm ${formErrors[field] ? 'block' : 'hidden'}`}>
-      <i className="mr-2 fa-solid fa-circle-exclamation"></i>
-      {formErrors[field]}
-    </p>
-  );
+ 
 
   return (
     <div style={{ maxWidth: '500px', margin: '64px auto', padding: '24px', background: '#fff', border: '1px solid #e8e8e8', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)' }}>
