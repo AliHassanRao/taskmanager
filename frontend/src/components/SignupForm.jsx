@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, Typography, Spin } from 'antd';
+import { Form, Input, Button, Typography, Spin, message } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 import validateManyFields from '../validations';
@@ -23,28 +23,54 @@ const SignupForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const errors = validateManyFields('signup', formData);
     setFormErrors({});
+    
+    // Validate form data
     if (errors.length > 0) {
       setFormErrors(errors.reduce((total, ob) => ({ ...total, [ob.field]: ob.err }), {}));
       return;
     }
 
     const config = { url: '/auth/signup', method: 'post', data: formData };
-    fetchData(config).then(() => {
-      // message.success('Signup successful!');
+
+    try {
+      await fetchData(config); // This will handle the API request
       navigate('/login');
-    });
+    } catch (error) {
+      // Show a generic message or error handling if the email already exists
+      if (error.response?.data?.msg) {
+        setFormErrors({ email: error.response.data.msg }); // Set the error on the email field
+      } else {
+        message.error('An error occurred. Please try again later.');
+      }
+    }
   };
 
- 
-
   return (
-    <div style={{ maxWidth: '500px', margin: '64px auto', padding: '24px', background: '#fff', border: '1px solid #e8e8e8', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)' }}>
+    <div
+      style={{
+        maxWidth: '500px',
+        margin: '64px auto',
+        padding: '24px',
+        background: '#fff',
+        border: '1px solid #e8e8e8',
+        borderRadius: '8px',
+        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+      }}
+    >
       {loading ? (
-        <Spin size="large" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '200px' }} />
+        <Spin
+          size="large"
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '200px',
+          }}
+        />
       ) : (
         <>
           <Title level={2} style={{ textAlign: 'center', marginBottom: '24px' }}>

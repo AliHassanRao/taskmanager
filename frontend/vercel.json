@@ -1,9 +1,0 @@
-{
-    "rewrites": [
-      {
-        "public": "/(.*)",
-        "destination": "/index.html"
-      }
-    ]
-  }
-  
