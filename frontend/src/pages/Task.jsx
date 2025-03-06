@@ -23,7 +23,7 @@ const Task = () => {
     title: '',
     description: '',
     dueDate: '',
-    status: 'To Do',
+    status: 'Pending',
   });
   const [formErrors, setFormErrors] = useState({});
 
