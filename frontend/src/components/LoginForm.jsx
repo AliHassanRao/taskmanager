@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Input, Button, Typography, Spin, message } from 'antd';
+import { Form, Input, Button, Typography, Spin } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import validateManyFields from '../validations';
