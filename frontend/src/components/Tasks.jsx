@@ -163,40 +163,45 @@ const Tasks = () => {
         />
       ) : (
         <DragDropContext onDragEnd={handleDragEnd}>
-          <Droppable droppableId="tasks">
-            {(provided) => (
-              <div {...provided.droppableProps} ref={provided.innerRef}>
-                <Table
-                  dataSource={tasks}
-                  columns={columns}
-                  rowKey="_id"
-                  pagination={{ pageSize: 5 }}
-                  bordered
-                  components={{
-                    body: {
-                      row: (props) => {
-                        const index = tasks.findIndex((task) => task._id === props['data-row-key']);
-                        return (
-                          <Draggable draggableId={props['data-row-key']} index={index}>
-                            {(provided) => (
-                              <tr
-                                ref={provided.innerRef}
-                                {...provided.draggableProps}
-                                {...provided.dragHandleProps}
-                                {...props}
-                              />
-                            )}
-                          </Draggable>
-                        );
-                      },
-                    },
-                  }}
-                />
+  <Droppable droppableId="tasks" direction="vertical">
+    {(provided) => (
+      <Table
+        dataSource={tasks}
+        columns={columns}
+        rowKey="_id"
+        pagination={{ pageSize: 5 }}
+        bordered
+        components={{
+          body: {
+            wrapper: (props) => (
+              <tbody ref={provided.innerRef} {...provided.droppableProps} {...props}>
+                {props.children}
                 {provided.placeholder}
-              </div>
-            )}
-          </Droppable>
-        </DragDropContext>
+              </tbody>
+            ),
+            row: (props) => {
+              const index = tasks.findIndex((task) => task._id === props['data-row-key']);
+              if (index === -1) return <tr {...props} />;
+              return (
+                <Draggable draggableId={props['data-row-key']} index={index}>
+                  {(provided) => (
+                    <tr
+                      ref={provided.innerRef}
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}
+                      {...props}
+                    />
+                  )}
+                </Draggable>
+              );
+            },
+          },
+        }}
+      />
+    )}
+  </Droppable>
+</DragDropContext>
+
       )}
     </div>
   );
