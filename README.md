@@ -2,10 +2,7 @@
 
 A MERN application.
 
-
-
 ### User-side features
-
 - Signup
 - Login
 - Logout
@@ -41,6 +38,7 @@ A MERN application.
 
 - HTML
 - CSS
+- Ant Design
 - Javascript
 - Tailwind CSS
 - Node.js

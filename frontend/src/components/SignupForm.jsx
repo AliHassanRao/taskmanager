@@ -48,7 +48,7 @@ const SignupForm = () => {
       ) : (
         <>
           <Title level={2} style={{ textAlign: 'center', marginBottom: '24px' }}>
-            Welcome user, please signup here
+            Please Signup Here
           </Title>
 
           <Form layout="vertical">
