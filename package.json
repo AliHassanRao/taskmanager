@@ -10,10 +10,10 @@
     "install-all": "npm install && npm install --prefix frontend && npm install --prefix backend",
     "heroku-postbuild": "npm install --prefix frontend && npm run build --prefix frontend && npm install --prefix backend",
     "build": "npm install --prefix frontend && npm run build --prefix frontend && npm install --prefix backend",
-    "start": "cd backend && node server.js"
+    "start": "cd backend && node app.js"
   },
   "keywords": ["MERN", "Tasks","Task manager", "Full stack application"],
-  "author": "Ali HAssan",
+  "author": "Ali Hassan",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^7.1.0"

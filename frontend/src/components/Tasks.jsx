@@ -148,7 +148,7 @@ const Tasks = () => {
           {tasks.length === 0 ? 'You do not have any tasks' : 'Your Tasks'}
         </Title>
         <Link to="/tasks/add">
-          <Button type="primary" icon={<PlusOutlined />}>
+          <Button icon={<PlusOutlined />}>
             Add New Task
           </Button>
         </Link>

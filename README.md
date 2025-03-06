@@ -89,7 +89,7 @@ Following are the major dev-dependencies of the project:
    npm run install-all
    ```
 
-2. Create a file named ".env" inside the backend folder. Add data from .env.example file and substitute your credentials there.
+2. Create a file named ".env" inside the backend folder. substitute your credentials there.
 
 3. Start the application
 

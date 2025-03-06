@@ -2,16 +2,15 @@
   "name": "mern-task-manager-backend",
   "version": "1.0.0",
   "main": "app.js",
- "scripts": {
-  "start": "node server.js",
-  "vercel-build": "npm install"
-}
-,
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
   "keywords": [
     "Task manager",
     "Tasks"
   ],
-  "author": "Aayush",
+  "author": "Ali Hassan",
   "license": "ISC",
   "description": "The backend part of simple task manager with user authentication",
   "dependencies": {

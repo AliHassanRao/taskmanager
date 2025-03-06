@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^5.6.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
@@ -21,12 +22,12 @@
     "redux-thunk": "^2.4.1",
     "web-vitals": "^2.1.4"
   },
-"scripts": {
-  "start": "react-scripts start",
-  "build": "react-scripts build",
-  "vercel-build": "npm install && npm run build"
-}
-,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
